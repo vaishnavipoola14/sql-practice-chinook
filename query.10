@@ -1,0 +1,3 @@
+SELECT CustomerId, InvoiceId, InvoiceDate, Total,
+       LAG(Total) OVER (PARTITION BY CustomerId ORDER BY InvoiceDate) AS PreviousTotal
+FROM Invoice;

@@ -1,0 +1,3 @@
+SELECT CustomerId, InvoiceId, Total,
+       RANK() OVER (PARTITION BY CustomerId ORDER BY Total DESC) AS Rnk
+FROM Invoice;

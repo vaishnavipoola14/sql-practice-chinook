@@ -1,0 +1,4 @@
+SELECT c.FirstName, c.LastName, c.Country, i.InvoiceId, i.Total,
+       RANK() OVER (PARTITION BY i.CustomerId ORDER BY i.Total DESC) AS Rnk
+FROM Invoice i
+JOIN Customer c ON i.CustomerId = c.CustomerId;
